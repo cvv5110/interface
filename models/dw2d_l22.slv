@@ -1,0 +1,32 @@
+{
+'coupleMode' : 'fst',
+'coupleSchm' : 'fh',
+'coupleFull' : False,
+'dtE'      : None,
+'dtF'      : None,
+'dtS'      : 0.001,
+'dtT'      : None,
+'estiType' : {},
+'estiInit' : {},
+'jacMF'    : False,
+'nIter'    : 1000,
+'nIterJac' : 10,
+'ntFS'     : 1,
+'ntSE'     : 1,
+'ntST'     : 1,
+'ntFT'     : None,
+'outputDir'  : './res/',
+'skpIntvl' : 1,
+'solFile'  : None,
+'stepS'    : 10,
+'termIfUns'  : False,
+'maxUnsSteps': 3,
+'tolRes'   : 1e-16,
+'writeIntvl' : -1,
+'lvlF'     : 22,
+'solFObj'  : None,
+'dispIntp' : 'mt',
+'fluxIntp' : 'nc',                  # NC is for meshes of similar size
+'loadIntp' : 'nc',                  # QP is for projection of dense mesh to coarsen mesh
+'tempIntp' : 'ms'
+}
