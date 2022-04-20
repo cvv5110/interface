@@ -32,13 +32,12 @@ class PIROMI(SolverDummy2D):
                 setattr(self, key, kwargs[key])
         
         # Initialize internal PIROMi solver
-        self.piromi_solver = COUPLED_PIROMI(**kwargs, node_mode='coupled', domain='panel', noise='nonoise')
+        self.piromi_solver = COUPLED_PIROMI(node_mode='coupled', domain='panel', Mfront=50, Mpanel=51, x2=2.0, **kwargs)
         self.piromi_solver.load_low_window()
                 
         # Initialize reference
         self.Tref = 380.0
         self.use_flags = {}
-        self._set_window_use_flags()
         # Initialize coupled mode
         self.piromi_solver.set_mode('coupled')
         # Specify transformation parameters to go from HYPATE coordinates to ATVI coordinates
@@ -46,7 +45,7 @@ class PIROMI(SolverDummy2D):
         
     def _set_domain_transformations(self):
         self.panel_index = np.where(self.piromi_solver.X == self.piromi_solver.x1)[0][0] + 1
-        self.x = self.piromi_solver.xpanel
+        self.x = self.piromi_solver.X
         self.xHyp = self.piromi_solver.xpanel
         self.N = len(self.x)
         self.piromi_solver.ahl = None
